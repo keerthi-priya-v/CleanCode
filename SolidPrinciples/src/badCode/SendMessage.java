@@ -1,4 +1,4 @@
-package badCode;
+package com.badCode;
 
 //Violating Interface Segregation
 

@@ -1,4 +1,4 @@
-package badCode;
+package com.badCode;
 
 public class Hangouts extends MessagingService{
 

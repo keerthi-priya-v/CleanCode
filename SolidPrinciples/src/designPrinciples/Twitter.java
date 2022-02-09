@@ -1,4 +1,4 @@
-package designPrinciples;
+package com.designPrinciples;
 
 public class Twitter implements SocialMedia{
 

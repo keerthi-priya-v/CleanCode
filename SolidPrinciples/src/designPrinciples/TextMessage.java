@@ -1,4 +1,4 @@
-package designPrinciples;
+package com.designPrinciples;
 
 public interface TextMessage {
 

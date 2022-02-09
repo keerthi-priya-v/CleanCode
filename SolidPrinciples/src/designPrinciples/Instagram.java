@@ -1,4 +1,6 @@
-package designPrinciples;
+package com.designPrinciples;
+
+//Interface Segregation Principle
 
 public class Instagram implements VoiceMessage{
 

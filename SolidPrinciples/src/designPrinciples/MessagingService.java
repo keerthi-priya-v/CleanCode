@@ -1,6 +1,7 @@
-package designPrinciples;
+package com.designPrinciples;
 
 //Liskov Substitution
+//Objects of super class should be replaced with objects of sub classes
 public class MessagingService implements TextMessage,VoiceMessage {
 
     public void sendTextMessage(String textMessageToFriend) {

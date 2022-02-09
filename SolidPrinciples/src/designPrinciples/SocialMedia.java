@@ -1,6 +1,6 @@
-package designPrinciples;
+package com.designPrinciples;
 
-//Social Media - An Interface Opened for extension
+//Follows Open Closed Principle
 
 public interface SocialMedia {
 

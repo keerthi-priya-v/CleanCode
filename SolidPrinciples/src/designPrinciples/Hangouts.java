@@ -1,4 +1,6 @@
-package designPrinciples;
+package com.designPrinciples;
+
+//Liskov Substitution Principle
 
 public class Hangouts extends MessagingService{
 

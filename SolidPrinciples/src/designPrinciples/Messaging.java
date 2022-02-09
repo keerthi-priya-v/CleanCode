@@ -1,7 +1,8 @@
-package designPrinciples;
+package com.designPrinciples;
 
-//Open Closed Principle
-//Closed for modification
+//Follows Dependency Inversion Principle
+//High level modules should not depend on low level modules, instead they should depend on abstractions
+
 public class Messaging {
 
     private final SocialMedia socialMedia;
