@@ -4,51 +4,52 @@ package com;
 import java.io.File;
 //To read input from the keyboard
 import java.util.Scanner;
+//Provides Matcher and Pattern classes
+import java.util.regex.*;
 
 class JavaAssignment1
 {
+    //File object is created by passing the path
+    static File file = new File("\\C:\\Users\\Keerthi\\Desktop");
+
+    public static void printAbsolutePath(File file, Pattern pattern){
+        //Returns an array of Files denoting the files in a given pathname
+        File[] fileList =file.listFiles();
+        for(File fileName : fileList)
+        {
+            //Checking whether the input file name is directory or not
+            if(fileName.isDirectory()) {
+                //Recursive call
+                printAbsolutePath(fileName, pattern);
+            }
+            else{
+                //Performs match operations on a character sequence by interpreting a Pattern.
+                Matcher matcher = pattern.matcher(fileName.getName());
+                //Find the next subsequence of the input sequence
+                if(matcher.find())
+                    //Printing the Absolute path
+                    System.out.println("Path : " + fileName.getAbsolutePath());
+            }
+        }
+
+    }
     public static void main(String[] args)
     {
-        String inputFileName;
-        int flag;
-        //File object is created by passing the path
-        File file = new File("\\C:\\Users\\Keerthi\\Desktop");
-        System.out.print("---- Enter File Name --- Press 1 to exit program ----\t");
-        //Scanner object is created
-        Scanner input = new Scanner(System.in);
-        //starts do-while loop
-        do {
-            //Flag initialised
-            flag=0;
+        while(true){
+            //Scanner object is created
+            Scanner input = new Scanner(System.in);
+            System.out.println("---- Enter File Name --- Press 1 to exit program ----\t");
             //File name given as input
-            inputFileName=input.nextLine();
-            //Returns an array of string denoting the files in a given pathname
-            String[] fileList =file.list();
-            for(String fileName:fileList)
-            {
-                //Checking whether the input file name present in the array or not
-                if(fileName.equals(inputFileName))
-                {
-                    System.out.print(fileName+ " File found :) ");
-                    //Printing the absolute path of the file
-                    System.out.println("Path : "+ file.getAbsolutePath());
-                    System.out.print("---- Enter File Name --- Press 1 to exit program ----\t");
-                    //Flag set to take the input again
-                    flag=1;
-                }
-            }
-            //Checking whether the file is not found and given input is other than 1
-            if(flag==0 && !inputFileName.equals("1")) {
-                System.out.print("Try again... File Not Found :( ---- Press 1 to exit program ----\t");
-                //Flag set to take the input again
-                flag=1;
-            }
+            String inputFileName=input.nextLine();
             //If the given input is 1 then exit program
             if(inputFileName.equals("1")){
-                //Flag set to 0
-                //Breaks do-while loop
-                flag=0;
+                //Breaks while loop
+                return;
             }
-        }while (flag!=0);//ends do-while
+            //Creating pattern with given input
+            Pattern pattern = Pattern.compile(inputFileName, Pattern.CASE_INSENSITIVE);
+            printAbsolutePath(file, pattern);
+        }//ends while
     }
+
 }
